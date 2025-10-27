@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ejercicios de Funciones - JavaScript</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #1a73e8;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        #resultado {
+            white-space: pre-line;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 20px;
+            background: #f9f9f9;
+            border-radius: 4px;
+            min-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Ejercicios de Funciones (3 → 24)</h1>
+    <Il>
+        <li><a href="#" onclick="prog3(); return false;">3. esPar(num)</a></li>
+        <li><a href="#" onclick="prog4(); return false;">4. areaRectangulo(base, altura)</a></li>
+        <li><a href="#" onclick="prog5(); return false;">5. esMultiplo(a, b)</a></li>
+        <li><a href="#" onclick="prog6(); return false;">6. mayorDeTres(a, b, c)</a></li>
+        <li><a href="#" onclick="prog7(); return false;">7. promedio (3 notas)</a></li>
+        <li><a href="#" onclick="prog8(); return false;">8. convertirAMayusculas(texto)</a></li>
+        <li><a href="#" onclick="prog9(); return false;">9. calcularDescuento(precio, porcentaje)</a></li>
+        <li><a href="#" onclick="prog10(); return false;">10. saludo(nombre)</a></li>
+        <li><a href="#" onclick="prog11(); return false;">11. esPositivo(num)</a></li>
+        <li><a href="#" onclick="prog12(); return false;">12. componerTransformaciones()</a></li>
+        <li><a href="#" onclick="prog13(); return false;">13. procesarTexto()</a></li>
+        <li><a href="#" onclick="prog14(); return false;">14. operacionesMatematicas()</a></li>
+        <li><a href="#" onclick="prog15(); return false;">15. crearContador()</a></li>
+        <li><a href="#" onclick="prog16(); return false;">16. acumulador(valorInicial)</a></li>
+        <li><a href="#" onclick="prog17(); return false;">17. saludo(nombre = "Amigo")</a></li>
+        <li><a href="#" onclick="prog18(); return false;">18. media(...numeros)</a></li>
+        <li><a href="#" onclick="prog19(); return false;">19. mostrarDatos(nombre, edad, ...hobbies)</a></li>
+        <li><a href="#" onclick="prog20(); return false;">20. ejecutarOperacion(fn, x, y)</a></li>
+        <li><a href="#" onclick="prog21(); return false;">21. filtrarArreglo(arr, callback)</a></li>
+        <li><a href="#" onclick="prog22(); return false;">22. descargarArchivo(url, callback)</a></li>
+        <li><a href="#" onclick="prog23(); return false;">23. potencia(base, exponente) (recursiva)</a></li>
+        <li><a href="#" onclick="prog24(); return false;">24. crearSecuencia(inicio, paso)</a></li>
+    </Il>
+
+    <script>
+        const mostrar = (txt) => document.getElementById("resultado").innerText = txt;
+
+        // 3
+        function prog3() {
+            const num = Number(prompt("Ingrese un número:"));
+            const esPar = (n) => n % 2 === 0;
+            alert(`${num} ${esPar(num) ? "es par" : "no es par"}`);
+        }
+
+        // 4
+        function prog4() {
+            const b = Number(prompt("Base:"));
+            const h = Number(prompt("Altura:"));
+            const areaRectangulo = (base, altura) => base * altura;
+            mostrar(`Área = ${areaRectangulo(b, h)}`);
+        }
+
+        // 5
+        function prog5() {
+            const a = Number(prompt("Número a:"));
+            const b = Number(prompt("Número b:"));
+            const esMultiplo = (x, y) => x % y === 0;
+            mostrar(`${a} ${esMultiplo(a, b) ? "es múltiplo" : "no es múltiplo"} de ${b}`);
+        }
+
+        // 6
+        function prog6() {
+            const a = Number(prompt("a:"));
+            const b = Number(prompt("b:"));
+            const c = Number(prompt("c:"));
+            const mayorDeTres = (a, b, c) => Math.max(a, b, c);
+            mostrar(`El mayor es ${mayorDeTres(a, b, c)}`);
+        }
+
+        // 7
+        const prog7 = () => {
+            const n1 = Number(prompt("Nota 1:"));
+            const n2 = Number(prompt("Nota 2:"));
+            const n3 = Number(prompt("Nota 3:"));
+            const promedio = (a, b, c) => (a + b + c) / 3;
+            mostrar(`Promedio = ${promedio(n1, n2, n3).toFixed(2)}`);
+        };
+
+        // 8
+        const prog8 = () => {
+            const texto = prompt("Ingrese un texto:");
+            const convertirAMayusculas = (t) => t.toUpperCase();
+            mostrar(convertirAMayusculas(texto));
+        };
+
+        // 9
+        const prog9 = () => {
+            const precio = Number(prompt("Precio:"));
+            const porc = Number(prompt("Descuento (%):"));
+            const calcularDescuento = (precio, porcentaje) => precio * (1 - porcentaje / 100);
+            mostrar(`Precio final: S/ ${calcularDescuento(precio, porc).toFixed(2)}`);
+        };
+
+        // 10
+        const prog10 = () => {
+            const nombre = prompt("Ingrese su nombre:");
+            const saludo = (nombre) => `¡Hola ${nombre}! Bienvenido.`;
+            mostrar(saludo(nombre));
+        };
+
+        // 11
+        const prog11 = () => {
+            const num = Number(prompt("Número:"));
+            const esPositivo = (n) => n > 0;
+            mostrar(`${num} ${esPositivo(num) ? "es positivo" : "no es positivo"}`);
+        };
+
+        // 12
+        const prog12 = () => {
+            const mayus = (t) => t.toUpperCase();
+            const signo = (t) => t + "!";
+            const componerTransformaciones = (f1, f2) => (t) => f2(f1(t));
+            const transformar = componerTransformaciones(mayus, signo);
+            mostrar(transformar(prompt("Texto:")));
+        };
+
+        // 13
+        const prog13 = () => {
+            function procesarTexto(texto) {
+                function limpiarEspacios(t) { return t.trim(); }
+                function contarPalabras(t) { return limpiarEspacios(t).split(/\s+/).length; }
+                return `Palabras: ${contarPalabras(texto)}`;
+            }
+            const t = prompt("Ingrese texto:");
+            mostrar(procesarTexto(t));
+        };
+
+        // 14
+        const prog14 = () => {
+            function operacionesMatematicas() {
+                const sumar = (a, b) => a + b;
+                const restar = (a, b) => a - b;
+                const multiplicar = (a, b) => a * b;
+                const dividir = (a, b) => a / b;
+                return { sumar, restar, multiplicar, dividir };
+            }
+            const op = operacionesMatematicas();
+            mostrar(`Ejemplo: 4 + 2 = ${op.sumar(4, 2)}, 4 / 2 = ${op.dividir(4, 2)}`);
+        };
+
+        // 15
+        const prog15 = () => {
+            function crearContador() {
+                let count = 0;
+                return {
+                    incrementar: () => ++count,
+                    resetear: () => count = 0
+                };
+            }
+            const c = crearContador();
+            c.incrementar(); c.incrementar();
+            mostrar(`Contador: ${c.incrementar()} (después de 3 incrementos)`);
+        };
+
+        // 16
+        const prog16 = () => {
+            function acumulador(valorInicial) {
+                let total = valorInicial;
+                return (nuevo) => total += nuevo;
+            }
+            const acc = acumulador(5);
+            acc(3); acc(2);
+            mostrar(`Acumulado: ${acc(0)}`);
+        };
+
+        // 17
+        const prog17 = () => {
+            const saludo = (nombre = "Amigo") => `Hola, ${nombre}!`;
+            const n = prompt("Nombre (opcional):");
+            mostrar(saludo(n || undefined));
+        };
+
+        // 18
+        const prog18 = () => {
+            const media = (...nums) => nums.reduce((a, b) => a + b, 0) / nums.length;
+            mostrar(`Media: ${media(4, 8, 10, 2, 6).toFixed(2)}`);
+        };
+
+        // 19
+        const prog19 = () => {
+            function mostrarDatos(nombre, edad, ...hobbies) {
+                return `Nombre: ${nombre}\nEdad: ${edad}\nHobbies: ${hobbies.join(", ")}`;
+            }
+            mostrar(mostrarDatos("Luis", 25, "Leer", "Correr", "Música"));
+        };
+
+        // 20
+        const prog20 = () => {
+            const ejecutarOperacion = (fn, x, y) => fn(x, y);
+            const suma = (a, b) => a + b;
+            mostrar(`Resultado: ${ejecutarOperacion(suma, 4, 5)}`);
+        };
+
+        // 21
+        const prog21 = () => {
+            const arr = [1, 2, 3, 4, 5, 6];
+            const filtrarArreglo = (arr, cb) => arr.filter(cb);
+            mostrar(`Pares: ${filtrarArreglo(arr, n => n % 2 === 0).join(", ")}`);
+        };
+
+        // 22
+        const prog22 = () => {
+            function descargarArchivo(url, callback) {
+                mostrar(`Descargando ${url}...`);
+                setTimeout(() => callback(url), 1000);
+            }
+            descargarArchivo("archivo.zip", (u) => mostrar(`Descarga completa de ${u}`));
+        };
+
+        // 23
+        const prog23 = () => {
+            function potencia(base, exp) {
+                if (exp === 0) return 1;
+                return base * potencia(base, exp - 1);
+            }
+            const b = Number(prompt("Base:"));
+            const e = Number(prompt("Exponente:"));
+            mostrar(`${b}^${e} = ${potencia(b, e)}`);
+        };
+
+        // 24
+        const prog24 = () => {
+            function crearSecuencia(inicio, paso) {
+                let actual = inicio - paso;
+                return () => actual += paso;
+            }
+            const sec = crearSecuencia(2, 3);
+            mostrar(`Secuencia: ${sec()}, ${sec()}, ${sec()}, ${sec()}`);
+        };
+    </script>
+</body>
+
+</html>
