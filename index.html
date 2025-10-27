@@ -33,7 +33,7 @@
 
 <body>
     <h1>Ejercicios de Funciones (3 → 24)</h1>
-    <Il>
+    <ol>
         <li><a href="#" onclick="prog3(); return false;">3. esPar(num)</a></li>
         <li><a href="#" onclick="prog4(); return false;">4. areaRectangulo(base, altura)</a></li>
         <li><a href="#" onclick="prog5(); return false;">5. esMultiplo(a, b)</a></li>
@@ -56,7 +56,9 @@
         <li><a href="#" onclick="prog22(); return false;">22. descargarArchivo(url, callback)</a></li>
         <li><a href="#" onclick="prog23(); return false;">23. potencia(base, exponente) (recursiva)</a></li>
         <li><a href="#" onclick="prog24(); return false;">24. crearSecuencia(inicio, paso)</a></li>
-    </Il>
+    </ol>
+
+    <div id="resultado">(Resultado aquí)</div>
 
     <script>
         const mostrar = (txt) => document.getElementById("resultado").innerText = txt;
@@ -65,7 +67,7 @@
         function prog3() {
             const num = Number(prompt("Ingrese un número:"));
             const esPar = (n) => n % 2 === 0;
-            alert(`${num} ${esPar(num) ? "es par" : "no es par"}`);
+            mostrar(`${num} ${esPar(num) ? "es par" : "no es par"}`);
         }
 
         // 4
